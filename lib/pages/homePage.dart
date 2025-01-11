@@ -82,457 +82,469 @@ class _HomepageState extends State<Homepage> {
                 // Bottom black container
                 Positioned(
                   top: mq.height * 0.03,
-                  child: SingleChildScrollView(
-                    child: Container(
-                      width: mq.width,
-                      height: mq.height * 0.3,
-                      color: Colors.black87,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: mq.height * 0.09,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
-                                  child: const Text(
-                                    "LTE",
-                                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                                  ),
+                  child: Expanded(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        width: mq.width,
+                        height: mq.height * 0.3,
+                        color: Colors.black87,
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: (){
+                                setState(() {
+                                  isExpanded = !isExpanded;
+                                  print("Container expanded: $isExpanded");
+                                });
+                              },
+                              child: AnimatedContainer(
+                                width: double.infinity,
+                                height: isExpanded ? mq.height * 0.09 : mq.height*.1,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
+                                      child: const Text(
+                                        "LTE",
+                                        style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    // Wrap the columns in a horizontally scrollable view
+                                   const Expanded(
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "Band",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "EARFCN",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "Freq",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "DL BW",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "RSRP",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "SINR",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "PDSCH",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: 30.0, top: 15),
+                                              child: Column(
+                                                children: const [
+                                                  Text(
+                                                    "PUSCH",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "--",
+                                                    style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                // Wrap the columns in a horizontally scrollable view
-                                const Expanded(
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "Band",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "EARFCN",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "Freq",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "DL BW",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "RSRP",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "SINR",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "PDSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "PUSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                              ),
+                            ),
+                            Container(height: mq.height*.002,color: Colors.white,),
+                            Container(
+                              width: double.infinity,
+                              height: mq.height * 0.09,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
+                                    child: const Text(
+                                      "NR",
+                                      style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(height: mq.height*.002,color: Colors.white,),
-                          Container(
-                            width: double.infinity,
-                            height: mq.height * 0.09,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
-                                  child: const Text(
-                                    "NR",
-                                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                // Wrap the columns in a horizontally scrollable view
-                                const Expanded(
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR Band",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                  // Wrap the columns in a horizontally scrollable view
+                                  const Expanded(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR Band",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR ARFCN",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR ARFCN",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR Freq",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR Freq",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR DL BW",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR DL BW",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR RSRP",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR RSRP",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR SINR",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR SINR",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR PDSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR PDSCH",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "NR PUSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "NR PUSCH",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(height: mq.height*.002,color: Colors.white,),
-                          Container(
-                            width: double.infinity,
-                            height: mq.height * 0.09,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
-                                  child: const Text(
-                                    "LTE",
-                                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                // Wrap the columns in a horizontally scrollable view
-                                const Expanded(
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "Band",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "EARFCN",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "Freq",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "DL BW",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "RSRP",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "SINR",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "PDSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 30.0, top: 15),
-                                          child: Column(
-                                            children: const [
-                                              Text(
-                                                "PUSCH",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "--",
-                                                style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                            Container(height: mq.height*.002,color: Colors.white,),
+                            Container(
+                              width: double.infinity,
+                              height: mq.height * 0.09,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: mq.height * 0.03),
+                                    child: const Text(
+                                      "LTE",
+                                      style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  // Wrap the columns in a horizontally scrollable view
+                                  const Expanded(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "Band",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "EARFCN",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "Freq",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "DL BW",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "RSRP",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "SINR",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "PDSCH",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 30.0, top: 15),
+                                            child: Column(
+                                              children: const [
+                                                Text(
+                                                  "PUSCH",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "--",
+                                                  style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
