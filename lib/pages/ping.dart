@@ -1,3 +1,4 @@
+import 'package:buddy/widgets/NavDrawer.dart';
 import 'package:flutter/material.dart';
 
 class PingPage extends StatefulWidget {
@@ -9,10 +10,13 @@ class PingPage extends StatefulWidget {
 
 class _MenuPageState extends State<PingPage> {
   late Size mq;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         leading: const Icon(
           Icons.menu,
@@ -663,7 +667,7 @@ class _MenuPageState extends State<PingPage> {
           ),
         ],
       ),
-
+      endDrawer: const drawer(),
     );;
   }
 }
