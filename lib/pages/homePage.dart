@@ -23,10 +23,13 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.white,
-          size: 30,
+        leading: IconButton(
+          onPressed: (){
+            _scaffoldKey.currentState?.openDrawer();
+          },
+          icon: const Icon(Icons.menu,
+            color: Colors.white,
+            size: 30,)
         ),
         title: const Text(
           "PING",
@@ -106,6 +109,7 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
+      drawer: drawer(),
       body: Column(
         children: [
           SizedBox(
@@ -384,7 +388,6 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
-
     );
   }
 }

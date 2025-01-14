@@ -667,7 +667,7 @@ class _MenuPageState extends State<PingPage> {
           ),
         ],
       ),
-      endDrawer: const drawer(),
+      endDrawer: drawer(),
     );;
   }
 }
